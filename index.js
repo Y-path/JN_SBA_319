@@ -34,6 +34,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const bookRoutes = require('./routes/bookRoutes');
+const userRoutes = require('./routes/userRoutes');
+const summaryRoutes = require('./routes/summaryRoutes');
 
 const app = express();
 app.use(bodyParser.json());
@@ -50,5 +52,7 @@ mongoose.connect(
 
 // Routes
 app.use('/api/books', bookRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/summaries', summaryRoutes);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

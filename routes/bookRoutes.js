@@ -1,43 +1,10 @@
-// import express from "express";
-// import db from "../db/conn.mjs";
-// import { ObjectId } from "mongodb";
-
-// const router = express.Router();
-
-// // Create a user
-// router.post("/", async (req, res) => {
-//     let collection = await db.collection("users");
-//     let newDocument = req.body;
-//     let result = await collection.insertOne(newDocument);
-//     res.send(result).status(204);
-//   });
-
-//   // Get a user
-// router.get("/users/:id", async (req, res) => {
-//     let collection = await db.collection("users");
-//     let query = { _id: ObjectId(req.params.id) };
-//     let result = await collection.findOne(query);
-//     if (!result) res.send("Not found").status(404);
-//     else res.send(result).status(200);
-//   });
-
-//   // Delete a user
-// router.delete("/:id", async (req, res) => {
-//     let collection = await db.collection("users");
-//     let query = { _id: ObjectId(req.params.id) };
-//     let result = await collection.deleteOne(query);
-//     if (!result) res.send("Not found").status(404);
-//     else res.send(result).status(200);
-//   });
-
-
 const express = require('express');
 const router = express.Router();
 const Book = require('../models/Book');
 
 // Define routes here
 
-// POST
+// POST to add a book
 
 router
 
@@ -68,7 +35,7 @@ router
     }
 });
 
-// GET
+// GET all books
 
 router
 
@@ -81,6 +48,8 @@ router
         res.status(500).json({ message: 'Server error' });
     }
 });
+
+// GET a specific book
 
 router
 
@@ -99,7 +68,7 @@ router
     }
 });
 
-// DELETE BOOK
+// DELETE a book
 
 router
 
@@ -107,7 +76,7 @@ router
     const { id } = req.params;
 
     try {
-        const deletedBook = await Book.deleteOne(id);
+        const deletedBook = await Book.findOneAndDelete({_id: id});
         if (!deletedBook) {
             return res.status(404).json({ message: 'No book found' });
         }
@@ -118,7 +87,7 @@ router
     }
 });
 
-// PUT
+// PUT to update a book
 
 router
 
@@ -127,8 +96,8 @@ router
     const { title, author, genre, publishedYear, isAvailable, reviews } = req.body;
 
     try {
-        const updatedBook = await Book.updateOne(
-            id,
+        const updatedBook = await Book.findOneAndUpdate({_id: id},
+            
             { title, author, genre, publishedYear, isAvailable, reviews },
             { new: true }
         );
