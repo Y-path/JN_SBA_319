@@ -2,7 +2,9 @@
 
 ## Description
 
-This is an API for viewing artists works and details. It also allows for posting, editing, and deleting of artist details.  Additionally, it includes a form to sign up for email communication.
+This is a database for books, users, summaries, and reviews. It allows for retrieving, posting, editing, and deleting of books. It allows for posting of reviews. It allows for retrieving, posting,
+
+and deleting of users. It also allows for retrieving, posting, and editing of summaries.   
 
 ## Technology Used
 
@@ -10,69 +12,43 @@ JavaScript, Node, Express, MongoDB, Mongoose
 
 ## Installation and Methods
 
-Files can be opened directly from my Github repository which is located here: https://github.com/Y-path/JN_SBA_319
+Files can be opened directly from my Github repository which is located here: https://github.com/Y-path/JN_SBA_319. Access the database by using my connection string which will be attached to the
+
+submission of this project.
 
 GET
 
-The application runs by passing an artist name in the following query parameter: http://localhost:3000/api/works/artist/:artistName
+/api/books -- gets all books and reviews
 
-artistName must be full name, first and last, separated by a space. It is not case sensitive. ex. /api/works/artist/Vincent van Gogh
+/api/books/book/:id -- gets a specific book and reviews
 
-There are currenty only 5 artists in the database, they are:
+/api/summaries/summary/:id -- gets a specific summary
 
-Vincent van Gogh,
+/api/users -- gets all users
 
-Remedios Varo,
-
-Claude Monet,
-
-Jackson Pollock,
-
-Mark Rothko
+/api/users/user/:id -- gets a specific user
 
 POST
 
-Route for posting a new artist is: /api/artist
+/api/books -- posts a new book
 
-Accepted parameters for posting a new artist are: 
+/api/books/book/:id/reviews -- posts a new review
 
-"name": ""
+/api/summaries -- posts a new summary
 
-"movement": ""
+/api/users -- posts a new user
 
-Route for posting new artist details is: /api/details
+PUT
 
-Accepted parameters for posting new details are:
+/api/books/book/:id -- updates a book
 
-"artistName":
-
-"born":
-
-"died":
-
-"activeYears":
-
-"nationality":
-
-"artMovement":
-
-"field":
-
-"wikipedia":
-
-PATCH
-
-Route for adding new artist details to existing artist is: api/details/:id
-
-Accepted parameters for patching new details are:
-
-"anything here":
+/api/summaries/summary/:id -- updates a summary
 
 DELETE
 
-Route for deleting all artist details is: api/details/:id
+/api/books/book/:id -- deletes a specific book
 
-This removes all details for specified artist ID
+/api/users/user/:id -- deletes a specific user
 
 ## Authors
 
