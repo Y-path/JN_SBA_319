@@ -2,9 +2,9 @@
 
 ## Description
 
-This is a database for books, users, summaries, and reviews. It allows for retrieving, posting, editing, and deleting of books. It allows for posting of reviews. It allows for retrieving, posting,
+This is a database for books, users, summaries, and reviews. It allows for retrieving, posting, editing, and deleting of books. It allows for posting 
 
-and deleting of users. It also allows for retrieving, posting, and editing of summaries.   
+of reviews. It allows for retrieving, posting, and deleting of users. It also allows for retrieving, posting, and editing of summaries.   
 
 ## Technology Used
 
@@ -12,9 +12,9 @@ JavaScript, Node, Express, MongoDB, Mongoose
 
 ## Installation and Methods
 
-Files can be opened directly from my Github repository which is located here: https://github.com/Y-path/JN_SBA_319. Access the database by using my connection string which will be attached to the
+Files can be opened directly from my Github repository which is located here: https://github.com/Y-path/JN_SBA_319. Access the database by 
 
-submission of this project.
+using my connection string which will be attached to the submission of this project.
 
 GET
 
